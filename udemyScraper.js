@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const readline = require('readline');
 
 (async () => {
   try {
@@ -15,7 +14,7 @@ const readline = require('readline');
 
     await page.goto('https://www.udemy.com/home/my-courses/learning/');
 
-    // Log in manually or automate login here
+    // Log in manually
     console.log('Please log in to Udemy manually...');
     await page.waitForSelector('a[href*="/course-dashboard-redirect/?course_id="]', { timeout: 60000 });
 
@@ -40,7 +39,7 @@ const readline = require('readline');
       const courses = await page.$$eval('a[href*="/course-dashboard-redirect/?course_id="]', elements => elements.map(el => el.textContent.trim()));
       courseNames = courseNames.concat(courses);
 
-      // Save data after each page (optional)
+      // Save data after each page
       saveData();
       console.log(`Page scraped. Total courses collected: ${courseNames.length}`);
 
@@ -54,7 +53,7 @@ const readline = require('readline');
       }
     }
 
-    // Final save (in case the loop exits naturally)
+    // Final save
     saveData();
     console.log('Scraping completed. Final data saved to courses.csv');
 
