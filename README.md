@@ -20,7 +20,7 @@ A simple tool to scrape all your enrolled Udemy course names and save them to a 
 ## Installation
 1. Clone this repository or download the script:
    ```bash
-   git clone https://github.com/your-username/UdemyCourseScraper.git
+   git clone https://github.com/Mansourtheonly/UdemyCourseScraper.git
 Navigate to the project folder:
 
 bash
